@@ -63,12 +63,17 @@ public class Application {
     }
 
     private static void runWithRefer() {
+
+        // ReferenceConfig 服务引用
         ReferenceConfig<DemoService> reference = new ReferenceConfig<>();
         reference.setApplication(new ApplicationConfig("dubbo-demo-api-consumer"));
         reference.setRegistry(new RegistryConfig("zookeeper://127.0.0.1:2181"));
+        // 元数据上报
         reference.setMetadataReportConfig(new MetadataReportConfig("zookeeper://127.0.0.1:2181"));
         reference.setInterface(DemoService.class);
+        // 服务启动
         DemoService service = reference.get();
+        // 调用rpc方法
         String message = service.sayHello("dubbo");
         System.out.println(message);
     }

@@ -171,6 +171,7 @@ public class DefaultApplicationDeployer extends AbstractDeployer<ApplicationMode
      */
     @Override
     public void initialize() {
+        // 直接执行初始化
         if (initialized) {
             return;
         }
