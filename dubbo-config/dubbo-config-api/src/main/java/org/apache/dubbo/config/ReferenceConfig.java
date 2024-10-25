@@ -512,11 +512,13 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
 
     /**
      * Make a remote reference, create a remote reference invoker
+     * 创建动态代理的流程
      */
     @SuppressWarnings({"unchecked", "rawtypes"})
     private void createInvokerForRemote() {
         if (urls.size() == 1) {
             URL curUrl = urls.get(0);
+            // 生成对应的invoker
             invoker = protocolSPI.refer(interfaceClass, curUrl);
             if (!UrlUtils.isRegistry(curUrl)) {
                 List<Invoker<?>> invokers = new ArrayList<>();
