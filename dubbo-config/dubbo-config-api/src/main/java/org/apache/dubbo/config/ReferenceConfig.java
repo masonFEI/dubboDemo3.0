@@ -420,6 +420,7 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
                     aggregateUrlFromRegistry(referenceParameters);
                 }
             }
+            // 创建远程invoker,registerProtocol创建了invoker
             createInvokerForRemote();
         }
 
@@ -436,6 +437,7 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
         MetadataUtils.publishServiceDefinition(consumerUrl, consumerModel.getServiceModel(), getApplicationModel());
 
         // create service proxy
+        // 基于invoker创建了动态代理
         return (T) proxyFactory.getProxy(invoker, ProtocolUtils.isGeneric(generic));
     }
 
