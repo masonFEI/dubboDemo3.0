@@ -32,7 +32,7 @@ import static org.apache.dubbo.registry.Constants.DEFAULT_REGISTRY;
 /**
  * RegistryProtocol
  */
-public class InterfaceCompatibleRegistryProtocol extends RegistryProtocol {
+public class InterfaceCompatibleRegistryProtocol extends RegistryProtocol  {
 
     @Override
     protected URL getRegistryUrl(Invoker<?> originInvoker) {

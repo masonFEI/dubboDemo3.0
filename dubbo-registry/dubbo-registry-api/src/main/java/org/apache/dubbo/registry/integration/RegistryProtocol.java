@@ -483,6 +483,7 @@ public class RegistryProtocol implements Protocol, ScopeModelAware {
             }
         }
 
+        // FailoverCluster,故障转移集群
         Cluster cluster = Cluster.getCluster(url.getScopeModel(), qs.get(CLUSTER_KEY));
         return doRefer(cluster, registry, type, url, qs);
     }
