@@ -471,6 +471,7 @@ public class MigrationInvoker<T> implements MigrationClusterInvoker<T> {
         });
     }
 
+    // 计算优先级较高的invoker，最优invoker判断
     private synchronized void calcPreferredInvoker(MigrationRule migrationRule) {
         if (serviceDiscoveryInvoker == null || invoker == null) {
             return;
