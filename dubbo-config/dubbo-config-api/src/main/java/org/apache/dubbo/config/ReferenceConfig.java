@@ -293,7 +293,7 @@ public class ReferenceConfig<T> extends ReferenceConfigBase<T> {
             consumerModel.setDestroyRunner(getDestroyRunner());
             consumerModel.setProxyObject(ref);
             consumerModel.initMethodModels();
-
+            // 检查invoker是否可用
             checkInvokerAvailable();
         } catch (Throwable t) {
             try {

@@ -51,6 +51,7 @@ public abstract class AbstractProxyFactory implements ProxyFactory {
         return getProxy(invoker, false);
     }
 
+    // 代理创建的工厂
     @Override
     public <T> T getProxy(Invoker<T> invoker, boolean generic) throws RpcException {
         // when compiling with native image, ensure that the order of the interfaces remains unchanged
@@ -90,6 +91,7 @@ public abstract class AbstractProxyFactory implements ProxyFactory {
         interfaces.addAll(Arrays.asList(INTERNAL_INTERFACES));
 
         try {
+            // 真正创建代理的逻辑
             return getProxy(invoker, interfaces.toArray(new Class<?>[0]));
         } catch (Throwable t) {
             if (generic) {
