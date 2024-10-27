@@ -330,6 +330,7 @@ public abstract class AbstractClusterInvoker<T> implements ClusterInvoker<T> {
 
         InvocationProfilerUtils.enterDetailProfiler(invocation, () -> "Router route.");
         // 服务发现
+        // 目标服务实例的集群，已经被搞成了invokers
         List<Invoker<T>> invokers = list(invocation);
         InvocationProfilerUtils.releaseDetailProfiler(invocation);
 
