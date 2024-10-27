@@ -49,6 +49,8 @@ public class InvokerInvocationHandler implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        // 动态代理，针对接口动态生成这个接口的实现类
+        // 动态代理底层都是要封装InvocationHandler,对动态代理的所有方案的调用，都会走到InvocationHandler这里来
         if (method.getDeclaringClass() == Object.class) {
             return method.invoke(invoker, args);
         }
