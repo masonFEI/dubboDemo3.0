@@ -420,6 +420,7 @@ public class DubboProtocol extends AbstractProtocol {
                 : url.getParameter(SHARE_CONNECTIONS_KEY, (String) null);
             connections = Integer.parseInt(shareConnectionsStr);
 
+            // 获取连接
             List<ReferenceCountExchangeClient> shareClients = getSharedClient(url, connections);
             ExchangeClient[] clients = new ExchangeClient[connections];
             Arrays.setAll(clients, shareClients::get);
@@ -566,6 +567,7 @@ public class DubboProtocol extends AbstractProtocol {
      * @return
      */
     private ReferenceCountExchangeClient buildReferenceCountExchangeClient(URL url) {
+        // 初始化client
         ExchangeClient exchangeClient = initClient(url);
         ReferenceCountExchangeClient client = new ReferenceCountExchangeClient(exchangeClient, DubboCodec.NAME);
         // read configs

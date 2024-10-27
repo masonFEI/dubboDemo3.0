@@ -99,6 +99,7 @@ public class NettyClient extends AbstractClient {
     protected void doOpen() throws Throwable {
         final NettyClientHandler nettyClientHandler = createNettyClientHandler();
         bootstrap = new Bootstrap();
+        // netty的编程
         initBootstrap(nettyClientHandler);
     }
 
@@ -152,6 +153,7 @@ public class NettyClient extends AbstractClient {
         long start = System.currentTimeMillis();
         ChannelFuture future = bootstrap.connect(getConnectAddress());
         try {
+            // 与服务provider建立连接
             boolean ret = future.awaitUninterruptibly(getConnectTimeout(), MILLISECONDS);
 
             if (ret && future.isSuccess()) {
