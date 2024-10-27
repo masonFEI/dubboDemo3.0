@@ -179,9 +179,13 @@ public abstract class AbstractInvoker<T> implements Invoker<T> {
         prepareInvocation(invocation);
 
         // do invoke rpc invocation and return async result
+        // 执行invoke 并拿到返回
+        // rpc调用结果，是异步的，async
         AsyncRpcResult asyncResult = doInvokeAndReturn(invocation);
 
         // wait rpc result if sync
+        // dubbo 默认情况下发起rpc请求，是异步化的操作
+        // 在这里等待同步的结果
         waitForResultIfSync(asyncResult, invocation);
 
         return asyncResult;

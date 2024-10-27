@@ -335,6 +335,7 @@ public abstract class AbstractClusterInvoker<T> implements ClusterInvoker<T> {
         InvocationProfilerUtils.releaseDetailProfiler(invocation);
 
         // 负载均衡
+        // 默认随机算法
         LoadBalance loadbalance = initLoadBalance(invokers, invocation);
         RpcUtils.attachInvocationIdIfAsync(getUrl(), invocation);
 
